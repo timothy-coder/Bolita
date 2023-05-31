@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="ball"></div>
+      <div id="botoner">
+        <!--<button id="dismin"><<-</button>-->
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <button id="reverse">Reverse</button>
+        <button id="stop">Stop</button>
+        <!--<button id="aumen">->></button>-->
+      </div>
+    </div>
+
+    <script>
+        var ball = document.getElementById("ball");
+        var playBtn = document.getElementById("play");
+        var pauseBtn = document.getElementById("pause");
+        var reverseBtn = document.getElementById("reverse");
+        var stopBtn=document.getElementById("stop");
+        var x = 0;
+        var dx = 10;
+        var intervalId;
+        
+        function moveBall() {
+          x += dx;
+          ball.style.left = x + "px";
+          
+          if (x + dx > 1400 ) {
+            x =0;
+          }
+          if ( x + dx < 0) {
+            x =1400;
+          }
+        }
+        
+        playBtn.onclick = function() {
+          intervalId = setInterval(moveBall, 50);
+        };
+        
+        pauseBtn.onclick = function() {
+          clearInterval(intervalId);
+        };
+        
+        reverseBtn.onclick = function() {
+          dx = -dx;
+          if (dx > 0) {
+            ball.style.left = "0px";
+          } else {
+            ball.style.left = "1400px";
+          }
+        };
+        
+        stopBtn.onclick = function() {
+          clearInterval(intervalId);
+          x = 0;
+          ball.style.left = x + "px";
+        };
+        </script>
+  </body>
+</html>

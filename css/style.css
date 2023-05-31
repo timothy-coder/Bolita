@@ -1,0 +1,30 @@
+#container {
+  position: relative;
+  height: 200px;
+  border: 2px solid orange;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#ball {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: red;
+}
+button{
+  padding: 10px;
+  background-color: greenyellow;
+  cursor: pointer;
+  
+}
+#botoner{
+  left: 50px;
+  margin: 0 auto;
+  
+}
